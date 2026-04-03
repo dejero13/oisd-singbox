@@ -2,8 +2,8 @@ name: Daily OISD NSFW → sing-box (.json + .srs)
 
 on:
   schedule:
-    - cron: '0 3 * * *'      # Каждый день в 03:00 UTC
-  workflow_dispatch:         # Можно запустить вручную
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
   update:
@@ -25,19 +25,27 @@ jobs:
 
       - name: Download latest sing-box
         run: |
-          echo "🔍 Скачиваем sing-box..."
-          wget -q https://github.com/SagerNet/sing-box/releases/latest/download/sing-box-*-linux-amd64.tar.gz -O singbox.tar.gz
-          tar -xzf singbox.tar.gz
+          echo "🔍 Скачиваем последнюю версию sing-box..."
+          
+          # Более надёжный способ скачивания
+          curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest \
+            | grep "browser_download_url.*linux-amd64.tar.gz" \
+            | cut -d : -f 2,3 \
+            | tr -d \" \
+            | wget -qi -
+          
+          tar -xzf sing-box-*-linux-amd64.tar.gz
           mv sing-box-*-linux-amd64/sing-box ./sing-box
           chmod +x ./sing-box
           ./sing-box version
+          echo "✅ sing-box успешно установлен"
 
       - name: Run update script
         run: python update.py
 
       - name: Compile to .srs
         run: |
-          echo "🔨 Компилируем .srs файл..."
+          echo "🔨 Компилируем oisd-nsfw-small.srs..."
           ./sing-box rule-set compile oisd-nsfw-small.json -o oisd-nsfw-small.srs
           ls -lh oisd-nsfw-small.srs
 
