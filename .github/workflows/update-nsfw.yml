@@ -1,0 +1,56 @@
+name: Daily OISD NSFW → sing-box (.json + .srs)
+
+on:
+  schedule:
+    - cron: '0 3 * * *'      # Каждый день в 03:00 UTC
+  workflow_dispatch:         # Можно запустить вручную
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Download latest sing-box
+        run: |
+          echo "🔍 Скачиваем sing-box..."
+          wget -q https://github.com/SagerNet/sing-box/releases/latest/download/sing-box-*-linux-amd64.tar.gz -O singbox.tar.gz
+          tar -xzf singbox.tar.gz
+          mv sing-box-*-linux-amd64/sing-box ./sing-box
+          chmod +x ./sing-box
+          ./sing-box version
+
+      - name: Run update script
+        run: python update.py
+
+      - name: Compile to .srs
+        run: |
+          echo "🔨 Компилируем .srs файл..."
+          ./sing-box rule-set compile oisd-nsfw-small.json -o oisd-nsfw-small.srs
+          ls -lh oisd-nsfw-small.srs
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet; then
+            echo "✅ Нет изменений"
+          else
+            git add oisd-nsfw-small.json oisd-nsfw-small.srs README.md
+            git commit -m "Автообновление OISD NSFW Small $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "✅ Успешно обновлено и запушено"
+          fi
