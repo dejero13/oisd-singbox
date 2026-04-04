@@ -52,22 +52,16 @@ jobs:
       - name: Run update script
         run: python update.py
 
-      - name: Compile to .srs
-        run: |
-          echo "🔨 Компилируем oisd-nsfw-small.srs..."
-          ./sing-box rule-set compile oisd-nsfw-small.json -o oisd-nsfw-small.srs
-          ls -lh oisd-nsfw-small.srs
-
       - name: Commit and push changes
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          if git diff --quiet; then
-            echo "✅ Нет изменений"
-          else
-            git add oisd-nsfw-small.json oisd-nsfw-small.srs README.md
-            git commit -m "Автообновление OISD NSFW Small $(date -u +'%Y-%m-%d %H:%M UTC')"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add oisd-nsfw-small.json oisd-nsfw-small.srs oisd-nsfw-small.txt README.md
+            git commit -m "🔄 Auto-update OISD NSFW Small ($(date -u +'%Y-%m-%d'))"
             git push
-            echo "✅ Успешно обновлено и запушено"
+            echo "✅ Обновление выполнено и закоммичено"
+          else
+            echo "✅ Нет изменений"
           fi
