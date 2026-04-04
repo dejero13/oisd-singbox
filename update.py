@@ -69,7 +69,7 @@ def main():
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(f"""# OISD NSFW Small для sing-box
 
-Updatable oisd json, srs and txt files for use with sing-box.
+Updatable oisd json, srs and txt files for use with sing-box. [OISD source](github.com/sjhgvr/oisd)
 
 **Последнее обновление:** {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC  
 **Количество доменов:** {len(domains)}
