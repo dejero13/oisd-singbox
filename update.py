@@ -34,7 +34,7 @@ def main():
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(f"""# OISD NSFW Small для sing-box
 
-Автоматически обновляется каждый день.
+Updatable oisd json and srs files for use with sing-box.
 
 **Последнее обновление:** {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC  
 **Количество доменов:** {len(domains)}
@@ -53,3 +53,7 @@ def main():
     "path": "oisd-nsfw-small.srs"
   }}
 ]
+""")
+
+if __name__ == "__main__":
+    main()
