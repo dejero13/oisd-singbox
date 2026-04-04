@@ -22,6 +22,9 @@ jobs:
 
       - name: Install Python dependencies
         run: pip install requests
+        
+      - name: Check with Pyright
+        run: python -m pyright update.py --warnings
 
       - name: Download latest sing-box
         run: |
