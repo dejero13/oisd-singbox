@@ -76,9 +76,9 @@ Updatable oisd json, srs and txt files for use with sing-box.
 
 ### Файлы
 
-- `oisd-nsfw-small.json`
-- `oisd-nsfw-small.srs`
-- `oisd-nsfw-small.txt`
+- `oisd-nsfw-small.json` https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.json
+- `oisd-nsfw-small.srs`  https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.srs
+- `oisd-nsfw-small.txt`  https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.txt
 """)
         
 print(" README.md обновлён")
