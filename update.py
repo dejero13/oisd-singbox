@@ -75,6 +75,7 @@ Updatable oisd json, srs and txt files for use with sing-box.
 **Количество доменов:** {len(domains)}
 
 ### Файлы
+https://github.com/dejero13/oisd-singbox/releases/download/latest/
 - `oisd-nsfw-small.json`
 - `oisd-nsfw-small.srs`
 - `oisd-nsfw-small.txt`
