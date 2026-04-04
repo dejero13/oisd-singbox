@@ -1,13 +1,14 @@
 # OISD NSFW Small для sing-box
 
-Updatable oisd json and srs files for use with sing-box.
+Updatable oisd json, srs и txt files for use with sing-box.
 
-**Последнее обновление:** 2026-04-04 04:59:00 UTC  
-**Количество доменов:** 19503
+**Последнее обновление:** 2026-04-04 07:00:12 UTC  
+**Количество доменов:** 19567
 
 ### Файлы
 - `oisd-nsfw-small.json`
 - `oisd-nsfw-small.srs`
+- `oisd-nsfw-small.txt`
 
 ### Использование
 ```json
