@@ -78,18 +78,8 @@ Updatable oisd json, srs and txt files for use with sing-box.
 - `oisd-nsfw-small.json`
 - `oisd-nsfw-small.srs`
 - `oisd-nsfw-small.txt`
-
-### Использование
-```json
-"rule_set": [
-  {{
-    "tag": "oisd-nsfw",
-    "type": "local",
-    "format": "binary",
-    "path": "oisd-nsfw-small.srs"
-  }}
-]
 """)
+        
 print(" README.md обновлён")
 print("\n Готово! Все файлы созданы.")
 
