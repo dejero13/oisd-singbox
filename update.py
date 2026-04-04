@@ -40,8 +40,8 @@ Updatable oisd json and srs files for use with sing-box.
 **Количество доменов:** {len(domains)}
 
 ### Файлы
-- `oisd-nsfw-small.json` — исходный формат  
-- `oisd-nsfw-small.srs` — скомпилированный формат
+- `oisd-nsfw-small.json`
+- `oisd-nsfw-small.srs`
 
 ### Использование
 ```json
