@@ -32,7 +32,7 @@ def main():
     print("✅ oisd-nsfw-small.json создан")
     
     with open("README.md", "w", encoding="utf-8") as f:
-        f.write(f"""# OISD NSFW Small для sing-box
+        f.write(f"""# OISD для sing-box
 
 Updatable oisd json and srs files for use with sing-box.
 
