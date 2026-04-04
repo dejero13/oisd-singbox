@@ -75,9 +75,9 @@ Updatable oisd json, srs и txt files for use with sing-box.
 **Количество доменов:** {len(domains)}
 
 ### Файлы
-- `oisd-nsfw-small.json` — source формат
-- `oisd-nsfw-small.srs` — **binary формат (рекомендуется)**
-- `oisd-nsfw-small.txt` — чистый список доменов
+- `oisd-nsfw-small.json`
+- `oisd-nsfw-small.srs`
+- `oisd-nsfw-small.txt`
 
 ### Использование
 ```json
@@ -93,6 +93,6 @@ Updatable oisd json, srs и txt files for use with sing-box.
 print(" README.md обновлён")
 print("\n Готово! Все файлы созданы.")
 
-if name == "main":
+if __name__ == "__main__":
     main()
 
