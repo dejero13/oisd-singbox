@@ -2,12 +2,12 @@
 
 Updatable oisd json and srs files for use with sing-box.
 
-**Последнее обновление:** 2026-04-04 00:29:15 UTC  
-**Количество доменов:** 19463
+**Последнее обновление:** 2026-04-04 04:59:00 UTC  
+**Количество доменов:** 19503
 
 ### Файлы
-- `oisd-nsfw-small.json` — исходный формат  
-- `oisd-nsfw-small.srs` — скомпилированный формат
+- `oisd-nsfw-small.json`
+- `oisd-nsfw-small.srs`
 
 ### Использование
 ```json
