@@ -69,16 +69,16 @@ def main():
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(f"""# OISD NSFW Small для sing-box
 
-Updatable oisd json, srs and txt files for use with sing-box. [OISD source](github.com/sjhgvr/oisd)
+Updatable oisd json, srs and txt files for use with sing-box. [OISD source](https://github.com/sjhgvr/oisd)
 
 **Последнее обновление:** {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC  
 **Количество доменов:** {len(domains)}
 
 ### Файлы
 
-- `oisd-nsfw-small.json` https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.json
-- `oisd-nsfw-small.srs`  https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.srs
-- `oisd-nsfw-small.txt`  https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.txt
+https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.json
+https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.srs
+https://github.com/dejero13/oisd-singbox/releases/download/latest/oisd-nsfw-small.txt
 """)
         
 print(" README.md обновлён")
