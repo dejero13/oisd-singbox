@@ -29,8 +29,21 @@ jobs:
 
       - name: Install sing-box
         run: |
-          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version latest
-          echo "sing-box version: $(sing-box version)"
+          # Получаем самую свежую стабильную версию
+          SING_BOX_VERSION=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//')
+          
+          echo "Installing sing-box version: $SING_BOX_VERSION"
+          
+          # Скачиваем и распаковываем
+          curl -L -o sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+          
+          tar -xzf sing-box.tar.gz --strip-components=1
+          
+          # Устанавливаем в PATH
+          sudo install -Dm755 sing-box /usr/local/bin/sing-box
+          
+          # Проверка
+          sing-box version
 
       # Если action не понравится — закомментируй выше и раскомментируй ручной вариант ниже
       # - name: Download and install sing-box (manual)
