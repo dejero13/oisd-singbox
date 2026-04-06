@@ -28,9 +28,9 @@ jobs:
           pip install requests
 
       - name: Install sing-box
-        uses: SagerNet/setup-sing-box@v1   # ← самый надёжный вариант
-        with:
-          version: latest
+        run: |
+          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version latest
+          echo "sing-box version: $(sing-box version)"
 
       # Если action не понравится — закомментируй выше и раскомментируй ручной вариант ниже
       # - name: Download and install sing-box (manual)
