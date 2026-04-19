@@ -2,8 +2,8 @@
 
 Updatable OISD json, srs and txt files for use with sing-box. [OISD source](https://github.com/sjhgvr/oisd)
 
-**Последнее обновление:** 2026-04-18 05:14:44 UTC  
-**Количество доменов:** 24180
+**Последнее обновление:** 2026-04-19 05:34:54 UTC  
+**Количество доменов:** 24407
 
 ### Файлы
 
